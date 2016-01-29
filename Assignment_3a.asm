@@ -23,6 +23,7 @@
 	smallest:		.asciiz "The smallest integer is "
 	largest:		.asciiz "The largest integer is "
 	run_again:		.asciiz "Enter 1 to run the program again, 0 to exit: "
+	return:			.asciiz "\n"
 	
 .text
 	main:
@@ -60,18 +61,67 @@
 		add $t3, $t0, $t1
 		add $t3, $t2, $t3
 		
-		## Print out the sum
+		## Print out the sum and return character.
 		la 	$a0, sum
 		li 	$v0, 4
 		syscall
 		move 	$a0, $t3
 		li 	$v0, 1
 		syscall
+		la	$a0, return
+		li	$v0, 4
+		syscall
 		
+		## Compute largest and smallest
+		bgt 	$t0, $t1, T0_largest_1 	# compare $t0 and $t1
+		bgt 	$t1, $t2, T1_largest_2	# compare $t1 and $t2
+		
+		j 	T2_largest_2			# $t2 is the largest
+		
+		
+	T0_largest_1:
+		## $t0 is larger than $t1. Now compare $t0 to $t2
+		bgt 	$t0, $t2, T0_largest_2
+		
+		## $t2 is larger than $t0 and $t1
+		j 	T2_largest_2
+		
+	T0_largest_2:
+		## $t1 is the largest integer. Now find the smallest integer.
+		move 	$t5, $t0 	# preserve the largest integer in $t5
+		blt 	$t1, $t2, T1_smallest
+		j 	T2_smallest
+
+		
+	T1_largest_2:
+		## $t1 is the largest integer. Now find the smallest integer.
+		move 	$t5, $t1	# preserve the largest integer in $t5
+		blt 	$t0, $t2, T0_smallest
+		j 	T2_smallest
+	
+	T2_largest_2:
+		## $t2 is the largest integer. Now find the smallest integer.
+		move 	$t5, $t2	# preserve the largest integer in $t5
+		blt 	$t0, $t1, T0_smallest
+		j 	T1_smallest
+		
+	T0_smallest:
+		move 	$t4, $t0	# preserve the smallest integer in $t4
+		j 	print
+		
+	T1_smallest:
+		move 	$t4, $t1	 # preserve the smallest integer in $t4
+		j 	print
+		
+	T2_smallest:
+		move 	$t4, $t2	# preserve the smallest integer in $t4
+		j 	print
+		
+	print:
 		
 		
 		j Exit
-		
+	
 	Exit:
 		li 	$v0, 10		# load syscall exit parameter
 		syscall			# return control back to OS.
