@@ -118,7 +118,29 @@
 		j 	print
 		
 	print:
+		## Print the smallest integer and a return character
+		la 	$a0, smallest
+		li 	$v0, 4
+		syscall
+		move 	$a0, $t4
+		li	$v0, 1
+		syscall
+		la	$a0, return
+		li	$v0, 4
+		syscall
 		
+		## Print out the largest input and a return character
+		la	$a0, largest
+		li	$v0, 4
+		syscall
+		move 	$a0, $t5
+		li	$v0, 1
+		syscall
+		la	$a0, return
+		li	$v0, 4
+		syscall
+		
+		## Ask user for input, loop if desired.
 		
 		j Exit
 	
