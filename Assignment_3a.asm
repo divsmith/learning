@@ -58,8 +58,8 @@
 		move 	$t2, $v0
 		
 		## Compute the sum of the 3 integers
-		add $t3, $t0, $t1
-		add $t3, $t2, $t3
+		add 	$t3, $t0, $t1
+		add 	$t3, $t2, $t3
 		
 		## Print out the sum and return character.
 		la 	$a0, sum
@@ -152,7 +152,7 @@
 		li	$t1, 1		# re-use $t1 since we're done with it
 		beq	$t0, $t1, main
 		
-		j Exit
+		j 	Exit
 	
 	Exit:
 		li 	$v0, 10		# load syscall exit parameter
