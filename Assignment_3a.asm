@@ -42,7 +42,18 @@
 		syscall
 		
 		move $t0, $v0
+			
+		## Print out message to get the third integer
+		la $a0, third_integer
+		li $v0, 4
+		syscall
+		
+		## Read the third integer and place it in $t2
+		li $v0, 5
+		syscall
+		
+		move $t2, $v0
 		
 		
-		## load the third integer
+		
 		
