@@ -41,7 +41,7 @@
 		li $v0, 5
 		syscall
 		
-		move $t0, $v0
+		move $t1, $v0
 			
 		## Print out message to get the third integer
 		la $a0, third_integer
