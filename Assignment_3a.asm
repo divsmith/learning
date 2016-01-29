@@ -141,6 +141,16 @@
 		syscall
 		
 		## Ask user whether to run again.
+		la	$a0, run_again
+		li	$v0, 4
+		syscall
+		li	$v0, 5
+		syscall
+		move 	$t0, $v0	# re-use $t0 since we're done with it.
+		
+		## Loop if user wants to run again, otherwise exit
+		li	$t1, 1		# re-use $t1 since we're done with it
+		beq	$t0, $t1, main
 		
 		j Exit
 	
