@@ -33,10 +33,15 @@
 		move $t0, $v0
 		
 		## Print out the message to get the second integer
-		
+		la $a0, second_integer
+		li $v0, 4
+		syscall
 		
 		## Read the second integer and place it in $t1
+		li $v0, 5
+		syscall
 		
+		move $t0, $v0
 		
 		
 		## load the third integer
