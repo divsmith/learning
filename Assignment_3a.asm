@@ -29,7 +29,6 @@
 		## Read the first integer and place it in $t0
 		li $v0, 5
 		syscall
-		
 		move $t0, $v0
 		
 		## Print out the message to get the second integer
@@ -40,7 +39,6 @@
 		## Read the second integer and place it in $t1
 		li $v0, 5
 		syscall
-		
 		move $t1, $v0
 			
 		## Print out message to get the third integer
@@ -50,9 +48,9 @@
 		
 		## Read the third integer and place it in $t2
 		li $v0, 5
-		syscall
-		
+		syscall	
 		move $t2, $v0
+		
 		
 		
 		
