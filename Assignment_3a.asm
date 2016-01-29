@@ -22,34 +22,34 @@
 .text
 	main:
 		## Print out the message to get the first integer
-		la $a0, first_integer
-		li $v0, 4
+		la 	$a0, first_integer
+		li 	$v0, 4
 		syscall
 		
 		## Read the first integer and place it in $t0
-		li $v0, 5
+		li 	$v0, 5
 		syscall
-		move $t0, $v0
+		move 	$t0, $v0
 		
 		## Print out the message to get the second integer
-		la $a0, second_integer
-		li $v0, 4
+		la 	$a0, second_integer
+		li 	$v0, 4
 		syscall
 		
 		## Read the second integer and place it in $t1
-		li $v0, 5
+		li 	$v0, 5
 		syscall
-		move $t1, $v0
+		move 	$t1, $v0
 			
 		## Print out message to get the third integer
-		la $a0, third_integer
-		li $v0, 4
+		la 	$a0, third_integer
+		li 	$v0, 4
 		syscall
 		
 		## Read the third integer and place it in $t2
-		li $v0, 5
+		li 	$v0, 5
 		syscall	
-		move $t2, $v0
+		move 	$t2, $v0
 		
 		
 		
@@ -57,6 +57,6 @@
 		j Exit
 		
 	Exit:
-		li $v0, 10	# load syscall exit parameter
-		syscall		# return control back to OS.
+		li 	$v0, 10		# load syscall exit parameter
+		syscall			# return control back to OS.
 		
