@@ -56,4 +56,9 @@
 		
 		
 		
+		j Exit
+		
+	Exit:
+		li $v0, 10	# load syscall exit parameter
+		syscall		# return control back to OS.
 		
