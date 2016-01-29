@@ -22,7 +22,7 @@
 	sum:			.asciiz "The sum of the integers is "
 	smallest:		.asciiz "The smallest integer is "
 	largest:		.asciiz "The largest integer is "
-	run_again:		.asciiz "Enter 1 to run the program again, 0 to exit: "
+	run_again:		.asciiz "Enter 1 to run the program again, any other key to exit: "
 	return:			.asciiz "\n"
 	
 .text
@@ -140,7 +140,7 @@
 		li	$v0, 4
 		syscall
 		
-		## Ask user for input, loop if desired.
+		## Ask user whether to run again.
 		
 		j Exit
 	
