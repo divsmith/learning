@@ -1,4 +1,5 @@
 # Parker Smith -- 1/29/16
+
 # Assignment_3a.asm -- A program that receives 3
 #		integers from the keyboard, calculates
 #		and displays the sum of the integers,
@@ -23,7 +24,7 @@
 	sum:			.asciiz "The sum of the integers is "
 	smallest:		.asciiz "The smallest integer is "
 	largest:		.asciiz "The largest integer is "
-	run_again:		.asciiz "Enter 1 to run the program again, any other key to exit: "
+	run_again:		.asciiz "Enter 1 to run the program again or 0 to exit: "
 	return:			.asciiz "\n"
 	
 .text
